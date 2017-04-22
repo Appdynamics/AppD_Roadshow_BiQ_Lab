@@ -7,13 +7,12 @@ import java.util.logging.Logger;
 
 
 
-public class eCommerceThread
-  implements Runnable
-{
+public class eCommerceThread implements Runnable {
   private static final Logger log = Logger.getLogger(eCommerceThread.class.getName());
   private String sessionID;
 
-  public static int randInt(int min, int max) { Random rand = new Random();
+  public static int randInt(int min, int max) {
+    Random rand = new Random();
     int randomNum = rand.nextInt(max - min + 1) + min;
     return randomNum;
   }
@@ -21,7 +20,7 @@ public class eCommerceThread
   public String getSessionID() {
     return this.sessionID;
   }
-  
+
   public void run()
   {
     RandomCustomer randomCustomer = new RandomCustomer();
@@ -32,9 +31,7 @@ public class eCommerceThread
     String productName = randomCustomer.productName;
     Integer productPrice = randomCustomer.productPrice;
 
-
     this.sessionID = ("Session" + randInt(1, 1000000));
-
 
     boolean nextStep = homePage();
     int price;
@@ -51,12 +48,9 @@ public class eCommerceThread
     }
   }
 
-
   public boolean homePage()
   {
     processTransaction();
-
-
 
     int rand = randInt(1, 100);
     if (rand <= 95) {
@@ -66,8 +60,6 @@ public class eCommerceThread
     } else if (rand > 98) {
       errorTransaction("Random Error!");
     }
-
-
 
     rand = randInt(1, 100);
     if (rand <= 85) {
@@ -81,8 +73,6 @@ public class eCommerceThread
   {
     processTransaction();
 
-
-
     int rand = randInt(1, 100);
     if (rand <= 95) {
       normalTransaction();
@@ -91,9 +81,6 @@ public class eCommerceThread
     } else if (rand > 98) {
       errorTransaction("Random Error!");
     }
-
-
-
 
     rand = randInt(1, 100);
     if (rand <= 75) {
@@ -107,8 +94,6 @@ public class eCommerceThread
   {
     processTransaction();
 
-
-
     int rand = randInt(1, 100);
     if (rand <= 95) {
       normalTransaction();
@@ -118,8 +103,6 @@ public class eCommerceThread
       errorTransaction("Random Error!");
     }
 
-
-
     rand = randInt(1, 100);
     if (rand <= 30) {
       return true;
@@ -127,13 +110,9 @@ public class eCommerceThread
     return false;
   }
 
-
-  public int checkOut(String customerType, String customerEmail, String productType, String productCategory, String productName, Integer itemPrice)
-  {
+  public int checkOut(String customerType, String customerEmail, String productType, String productCategory, String productName, Integer itemPrice) {
     processTransaction();
-
-
-
+    
     if (((customerType.equals("Platinum")) && (productName.equals("Lord of the Rings Trilogy"))) || ((customerType.equals("Gold")) && (productName.equals("Sacred Hoops")))) {
       errorTransaction("Invalid SKU!");
     }

@@ -6,10 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 
 
-public class eCommerce
-{
-  public static void main(String[] args)
-  {
+public class eCommerce {
+  public static void main(String[] args) {
     boolean running = true;
 
     ExecutorService executor = Executors.newFixedThreadPool(100);

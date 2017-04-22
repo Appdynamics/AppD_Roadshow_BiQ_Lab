@@ -13,13 +13,9 @@ public class RandomCustomer {
     return randomNum;
   }
 
-
-
   public String productCategory;
 
-
   public String productName;
-
 
   public Integer productPrice;
 
