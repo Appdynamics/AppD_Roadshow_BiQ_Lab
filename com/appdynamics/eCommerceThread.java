@@ -40,7 +40,13 @@ public class eCommerceThread implements Runnable {
         nextStep = addToCart();
 
         if (nextStep) {
-          price = checkOut(customerType, customerEmail, productType, productCategory, productName, productPrice);
+          nextStep = checkOut(customerType, customerEmail, productType, productCategory, productName, productPrice);
+          if (nextStep) {
+            nextStep = submitPayment();
+            if (nextStep) {
+              confirmation();
+            }
+          }
         }
       }
     }
@@ -81,7 +87,7 @@ public class eCommerceThread implements Runnable {
     }
 
     rand = randInt(1, 100);
-    if (rand <= 75) {
+    if (rand <= 44) {
       return true;
     }
     return false;
@@ -102,13 +108,13 @@ public class eCommerceThread implements Runnable {
     }
 
     rand = randInt(1, 100);
-    if (rand <= 30) {
+    if (rand <= 50) {
       return true;
     }
     return false;
   }
 
-  public int checkOut(String customerType, String customerEmail, String productType, String productCategory, String productName, Integer itemPrice) {
+  public boolean checkOut(String customerType, String customerEmail, String productType, String productCategory, String productName, Integer itemPrice) {
     processTransaction();
 
     if (((customerType.equals("Platinum")) && (productName.equals("Lord of the Rings Trilogy"))) || ((customerType.equals("Gold")) && (productName.equals("Sacred Hoops")))) {
@@ -126,7 +132,42 @@ public class eCommerceThread implements Runnable {
       }
     }
 
-    return itemPrice.intValue();
+    rand = randInt(1, 100);
+    if (rand <= 55) {
+      return true;
+    }
+    return false;
+  }
+
+  public boolean submitPayment(){
+    processTransaction();
+    int rand = randInt(1, 100);
+    if (rand <= 95) {
+      normalTransaction();
+    } else if ((rand > 95) && (rand <= 98)) {
+      slowTransaction();
+    } else if (rand > 98) {
+      errorTransaction("Random Error!");
+    }
+
+    rand = randInt(1, 100);
+    if (rand <= 57) {
+      return true;
+    }
+    return false;
+
+  }
+
+  public void confirmation(){
+    processTransaction();
+    int rand = randInt(1, 100);
+    if (rand <= 95) {
+      normalTransaction();
+    } else if ((rand > 95) && (rand <= 98)) {
+      slowTransaction();
+    } else if (rand > 98) {
+      errorTransaction("Random Error!");
+    }
   }
 
   public void processTransaction() {
