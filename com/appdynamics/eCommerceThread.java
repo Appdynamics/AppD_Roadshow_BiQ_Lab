@@ -116,13 +116,13 @@ public class eCommerceThread implements Runnable {
 
   public boolean checkOut(String customerType, String customerEmail, String productType, String productCategory, String productName, Integer itemPrice) {
     processTransaction();
-
+    int rand;
     if (((customerType.equals("Platinum")) && (productName.equals("Lord of the Rings Trilogy"))) || ((customerType.equals("Gold")) && (productName.equals("Sacred Hoops")))) {
       errorTransaction("Invalid SKU!");
     }
     else
     {
-      int rand = randInt(1, 100);
+      rand = randInt(1, 100);
       if (rand <= 95) {
         normalTransaction();
       } else if ((rand > 95) && (rand <= 98)) {
