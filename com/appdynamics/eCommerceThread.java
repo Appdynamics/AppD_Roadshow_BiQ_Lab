@@ -5,8 +5,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
 public class eCommerceThread implements Runnable {
   private static final Logger log = Logger.getLogger(eCommerceThread.class.getName());
   private String sessionID;
@@ -112,7 +110,7 @@ public class eCommerceThread implements Runnable {
 
   public int checkOut(String customerType, String customerEmail, String productType, String productCategory, String productName, Integer itemPrice) {
     processTransaction();
-    
+
     if (((customerType.equals("Platinum")) && (productName.equals("Lord of the Rings Trilogy"))) || ((customerType.equals("Gold")) && (productName.equals("Sacred Hoops")))) {
       errorTransaction("Invalid SKU!");
     }
