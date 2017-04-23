@@ -17,12 +17,12 @@ What's in it?
 ### Pre-Provisioned instance
 
 * Linux/MacOS
-  * [Download SSH Key](../master/biq_lab.pem)
+  * [Download SSH Key](biq_lab.pem)
   * Change Permissions ```chmod 400 biq_lab.pem```
   * Login ```ssh -i biq_lab.pem -p <PORT> root@<IP>```(Port and IP will be provided during the Lab Session)
 * Windows
   * [Download Putty](http://www.putty.org/)
-  * [Download SSH Key](../blob/master/biq_lab.ppk)
+  * [Download SSH Key](biq_lab.ppk)
   * Provide Connection Details within  ```Session``` (Port and IP will be provided during the Lab Session)
   * Import SSH Key in ```Connection -> SSH -> Auth -> Private Key File for Authentication:```
   * Login as root
