@@ -14,7 +14,7 @@ What's in it?
 * Java Application Agent
 * Analytics Agent
 
-### 1.2.1 Pre-Provisioned instance
+### 1.2.1. Pre-Provisioned instance
 
 * Linux/MacOS
   * [Download SSH Key](biq_lab.pem)
@@ -27,7 +27,7 @@ What's in it?
   * Import SSH Key in ```Connection -> SSH -> Auth -> Private Key File for Authentication:```
   * Login as root
 
-### 1.2.2 Build your own
+### 1.2.2. Build your own
 
 **Docker is a Pre-Requisite do perform these steps**
 
@@ -40,7 +40,7 @@ What's in it?
 
 # 2. Setup Analytics
 
-## 2.1 Configure the Analytics Agent
+## 2.1. Configure the Analytics Agent
 
 * Edit the Properties File ```vi /analytics-agent/conf/analytics-agent.properties```
   * ad.controller.url=[Controller URL] **(New in 4.3)**
@@ -50,7 +50,7 @@ What's in it?
   * http.event.accessKey=H16h53cur3
 * Start the Analytics Agent ```nohup /analytics-agent/bin/analytics-agent.sh start &```
 
-## 2.2 Enable Analytics in the Controller UI
+## 2.2. Enable Analytics in the Controller UI
 
 * Login to the [Controller URL]
 * Navigate to ```Analytics -> Configuration -> Transaction Analytics```
@@ -59,7 +59,7 @@ What's in it?
 * Wait 1-2 minutes
 * Navigate to ```Analytics -> Searches```
 * Click the ```Add``` Button and Select any of the available options
-* You should now see Transactions report in the UI
+* You should now see Transactions in the UI
 * **Ask your Instructor if this does not happen**
 
 # Lab Parts
