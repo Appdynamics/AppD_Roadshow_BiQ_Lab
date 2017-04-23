@@ -17,7 +17,7 @@ What's in it?
 ### Pre-Provisioned instance
 
 * Linux/MacOS
-  * [Download SSH Key](../blob/master/biq_lab.pem)
+  * [Download SSH Key](../master/biq_lab.pem)
   * Change Permissions ```chmod 400 biq_lab.pem```
   * Login ```ssh -i biq_lab.pem -p <PORT> root@<IP>```(Port and IP will be provided during the Lab Session)
 * Windows
