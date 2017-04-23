@@ -19,7 +19,7 @@ ADD chain.pem /
 ADD start.sh /
 
 RUN apt-get update \
-    && apt-get install -q -y vim curl unzip openssh-server \
+    && apt-get install -q -y vim curl unzip \
     && git clone https://github.com/michaelenglert/AppD_Summit_BiQ_Lab \
     && javac /AppD_Summit_BiQ_Lab/com/appdynamics/* \
     && cd /AppD_Summit_BiQ_Lab \
