@@ -79,7 +79,7 @@ What's in it?
   * Define the Method Name ```processTransaction```
   * Add a Collector under ```Specify the Data to Collect from this Method Invocation```
     * Give it a Name **This is how the Field will be named within the UI**
-    * Select ``Ìnvoked Object```
+    * Select ```Invoked Object```
     * Select ```Use Getter Chain``` and type in ```getSessionID()```
     * Hit ```Save``` and make sure to apply the Collector to all your Business Transactions
 * Wait 1-2 minutes
@@ -99,9 +99,7 @@ What's in it?
 
 # 4. Exploring your Data
 
-# Lab Parts
 
-
-[Main Business Logic]:(/com/appdynamics/eCommerceThread.java)
+[Main Business Logic]: /com/appdynamics/eCommerceThread.java
 [controller url]: https://appd-ga.appd.duckdns.org
 [events url]: https://events.appd.duckdns.org
