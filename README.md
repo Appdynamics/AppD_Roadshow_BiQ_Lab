@@ -66,7 +66,7 @@ What's in it?
 
 ## 3.1. Get the Session ID
 
-* Look at the [Main Business Logic]
+* Look at the [Main Business Logic] (**Answer below**)
   * Find the getter Method returning the Session ID as a String
   * Find a Method which is executed within every Transaction (homePage, logIn,...)
 * Configure the Method Invocation Data Collector
@@ -78,11 +78,11 @@ What's in it?
   * Define the Class Name ```com.appdynamics.eCommerceThread```
   * Define the Method Name ```processTransaction```
   * Add a Collector under ```Specify the Data to Collect from this Method Invocation```
-    * Give it a Name **This is how the Field will be named within the UI**
+    * Name it **SessionID**
     * Select ```Invoked Object```
     * Select ```Use Getter Chain``` and type in ```getSessionID()```
     * Hit ```Save``` and make sure to apply the Collector to all your Business Transactions
-* Wait 1-2 minutes
+* Wait 1-2 minutes (**You can already configure the Data Collector in Section 3.2.**)
 * You should now see your new Field within the Analytics UI
 * **Ask your Instructor if this does not happen**
 
@@ -91,11 +91,19 @@ What's in it?
 * Look at the [Main Business Logic]
   * Find the ```checkOut``` Method
 * Add a new Data Collector as before to get additional Data
+* **Copy the exact parameter name as name for the Data Collector**
 * **Hints**
   * Use the ```Method Parameter``` Option instead of ```Invoked Object```before
   * You can stick to ```toString()``` No need to specify a custom getter Chain
   * You can add multiple Parameters within one Data Collector
   * Make sure to apply this Data Collector only to your ```Checkout``` Business Transaction
+  * Add these parameters:
+    * ```customerType```
+    * ```customerEmail```
+    * ```productType```
+    * ```productCategory```
+    * ```productName```
+    * ```itemPrice```
 
 # 4. Exploring your Data
 
