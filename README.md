@@ -140,33 +140,48 @@ You can also add filter criteria by **left clicking on the field names** and sel
 
 Now that we know how to navigate our data, let’s build our first visualization.  We will start by creating a simple visualization for the overall performance of our  application.
 
-* Click on the ```Visualization``` button.
-* Click on the ```Add Widget``` button, then click on ```Custom Widget Builder```.
+* **Click** on the ```Visualization``` button
+* **Click** on the ```Add Widget``` button
+* **Click** on ```Custom Widget Builder```
 
 Custom widgets allow you to create different visualizations of your data.  Let’s create a KPI for how many unique customers are on the site.
 
-* Drag and drop the ```Customer Email``` field into the Y Axis.  
+* Drag and drop the ```customerEmail``` field into the ```Y Axis```.  
 
 The Y Axis is used for numeric metrics.  If you use a String field you can either use Count (which is always the # of transactions) or Count Distinct, which is the distinct # of values of that field.
 
-* Click on the field and change the ```Aggregation``` to ```Count Distinct```.
-* Click on the ```Numeric``` chart type.
-* You can give the Widget a name by typing one in to the top left corner of the box.
-* Finally, click ```Add & Close Widget Builder```.
+* **Click** on the field and change the ```Aggregation``` to ```Count Distinct```
+* **Click** Save
+* **Click** on the ```Numeric``` chart type
+* You can give the Widget a name by typing one in to the top left corner of the box
+* Finally, **Click** ```Add & Close Widget Builder```
 
 Now the widget has been added to your canvas. You can resize it by clicking the corners and dragging to the desired fit.
 
-Add another custom widget using the same steps. This time drag the ```Response Time (ms)``` field into the Y Axis and select ```Average``` for the aggregation.  Configure this widget to be a ```Numeric Chart``` type like Unique Customers.  Notice that numeric fields have different aggregation options than string fields.
+* **Add** another custom widget using the same steps
+* This time **drag** the ```Response Time (ms)``` field into the ```Y Axis```
+* **Select** ```Average``` for the aggregation.  
+* **Configure** this widget to be a ```Numeric Chart``` type like Unique Customers.
 
-Now let’s break down your applications user experience by business transaction.  Create another custom widget and drag ```Business Transaction``` to the X Axis.  Since we did not populate the Y Axis, our metric will default to # of transactions.
-Bar and Pie charts can have a second grouping on the X Axis.  Drag ```User Experience``` to the X Axis.  Now we can see a user experience break out by each Business Transaction.
+**Notice** that numeric fields have different aggregation options than string fields.
+
+Now let’s break down your applications user experience by business transaction.  
+
+* **Create** another custom widget
+* **Drag** ```Business Transaction``` to the ```X Axis```
+  * Since we did not populate the ```Y Axis```, our metric will default to # of transactions.
+* Bar and Pie charts can have a second grouping on the X Axis.  
+* **Drag** ```User Experience``` to the X Axis.  
+* Now we can see a user experience break out by each Business Transaction.
 
 Your Visualization should look like this now:
 ![Visualization 1](img/dash_1.png)
 
 Click on the ```Save``` button and give the search a name.  Notice that it will now appear on your searches page as a Saved Search.
 
-## 4.3. Ad-hoc Analysis
+**Please Prepend your <GROUPNUMBER>- when saving something**
+
+## 4.4. Ad-hoc Analysis
 
 Now let’s revisit the interesting data point we saw in our last saved search.  The Check Out business transaction seems to be experiencing a high error rate.  Let’s build a more comprehensive visualization and try to find out why this is the case and what users are impacted.
 
@@ -191,15 +206,11 @@ Now we are only looking at Error transactions. Notice that more than half of our
 
 Now we can see a potential underlying issue.  It looks as though nearly all of the Platinum errors are associated with customers trying to purchase the Lord of the Rings Trilogy, which is much more expensive than most of our books and gives our users around a 4x average cart value.  Very quickly we were able to utilize Performance and Business information to get an immediate understanding of how our Business is being impacted in real time! **Make sure you save your search**.
 
+**Please Prepend your <GROUPNUMBER>- when saving something**
+
 # 5. Acting on your Data
 
-## 5.1. Linking to Snapshots
-
-Using the same search as the last section (including the filters of User Experience = Error and Customer Type = Platinum), **click** on the ```Data``` tab.
-
-**Double click** on one of the ```rows```.  If that transaction has a corresponding snapshot it will be loaded. This can be incredibly useful for quickly diagnosing issues and gives you another way to utilize Analytics to filter data with a business context and switch to deep dive diagnostic views for solving problems if they are performance related.
-
-## 5.2. Exporting Data
+## 5.1. Exporting Data
 
 In addition to leveraging snapshots, you can also add error details directly in your data tab.  Select the ```checkbox``` next to ```Error Details``` in the fields section.
 
@@ -209,7 +220,7 @@ We can also select the ```checkbox``` next to ```Customer Email``` and view the 
 
 **Click** on the ```Actions``` button and select ```Export``` to save your data set into a CSV file.  AppDynamics also has a REST API for programmatically exporting data.  This data can be sent to both your development team to quickly fix the issue and sales / marketing team to reach out to affected customers.
 
-## 5.3. Building Metrics
+## 5.2. Building Metrics
 
 You can also leverage Analytics Searches to create metrics.  These metrics work just like APM metrics (gathered every minute, baseline enabled, used for health rules, etc.).  With Analytics you can create more fine-tuned business alerting than with standard APM.
 
@@ -219,11 +230,12 @@ Analytics metrics are based on the # of results of a search.  Let’s create a m
   * Application - ```biz-iq-lab-<GROUPNUMBER>```
   * User Experience - ```Error```
   * Customer Type - ```Platinum```
-* Save the Search as Platinum Customer Errors
-* **Click** on the ```Actions``` button, and then **click** ```Create Metric```
-* Name the metric Platinum Customer Errors.
-* **Click** on ```Metrics``` in the left side Navigation and notice that your new metric has been created.
-* After a few minutes your new metric will start reporting in.  You can view it using the ```Metric Browser```.
+* Save the Search as ```<GROUPNUMBER>-Platinum Customer Errors```
+* **Click** on the ```Actions``` button
+* **Click** ```Create Metric```
+* Name the metric ```<GROUPNUMBER>-Platinum Customer Errors```
+* **Click** on ```Metrics``` in the left side Navigation and notice that your new metric has been created
+* After a few minutes your new metric will start reporting in.  You can view it using the ```Metric Browser```
 
 # 6. AppDynamics Query Language
 
@@ -233,14 +245,13 @@ AppDynamics also provides a SQL-like query language for accessing Analytics data
 
 * ```Add``` a new search and select ```Query Language Search```
 * **Erase** ```*``` and start typing customer
-
-You will see a predictive query window pop up and suggest relevant fields.  
-* Select Customer Type and hit tab.  
+* You will see a predictive query window pop up and suggest relevant fields.  
+* **Select** ```customerType``` and hit tab.  
 
 Note: fields with spaces in them need to be enclosed in a backtick. The SELECT statement of the query indicates the columns of data you want to show up in the results.
-* Complete the query by adding ```userExperience``` and ```count(*)``` to the ```SELECT``` statement.  
+* Complete the query by adding ```userExperience``` and ```count(*)``` to the ```SELECT``` statement
 
-This query shows the # of transactions broken out by customer type and user experience.  The full query for reference is ```SELECT segments.userData.`Customer Type`, userExperience, count(*) FROM transactions```
+This query shows the # of transactions broken out by customer type and user experience.  The full query for reference is ```SELECT segments.userData.customerType, userExperience, count(*) FROM transactions```
 
 ## 6.2. Advanced Query
 
@@ -254,15 +265,12 @@ The ```AS``` statement allows you to create an alias for the column name of your
 
 Try the following query, which gives us error rate across our entire data set: ```SELECT (filter(count(*), WHERE userExperience = "ERROR") * 1.0) / count(*) * 100 AS ErrorRate FROM transactions WHERE application = "biz-iq-lab-<GROUPNUMBER>"```
 
-**NOTE:** You might have to manually delete & type the quotes around ERROR and ```biz-iq-lab-<GROUPNUMBER>``` if you copy and paste the query from the lab guide (due to formatting).
+Looks like across all customers we currently have around a 3 to 4 % error rate.  Let’s further filter to Platinum customers only by adding Customer Type to the WHERE clause, which lets us filter our results: ```SELECT (filter(count(*), WHERE userExperience = "ERROR") * 1.0) / count(*) * 100 AS ErrorRate FROM transactions WHERE application = "biz-iq-lab-<GROUPNUMBER>" AND segments.userData.customerType = "Platinum"```
 
-Looks like across all customers we currently have around a 3 to 4 % error rate.  Let’s further filter to Platinum customers only by adding Customer Type to the WHERE clause, which lets us filter our results: ```SELECT (filter(count(*), WHERE userExperience = “ERROR”) * 1.0) / count(*) * 100 AS ErrorRate FROM transactions WHERE application = “biz-iq-lab-<GROUPNUMBER>” AND segments.userData.`Customer Type` = “Platinum”```
 
-**NOTE:** You might have to manually delete & type the quotes around ERROR, ```biz-iq-lab-<GROUPNUMBER>```, and Platinum if you copy and paste the query from the lab guide (due to formatting).
+Interestingly our Platinum customers are experiencing a **MUCH** higher error rate at almost 50 %.   
 
-Interestingly our Platinum customers are experiencing a MUCH higher error rate at almost 50 %.   
-
-Select ```Numeric``` as the ```chart type``` and **save the search** as Platinum Customer Error %.
+Select ```Numeric``` as the ```chart type``` and **save the search** as ```<GROUPNUMBER>-Platinum Customer Error %```.
 
 # 7. Integrating with Alerts & Custom Dashboards
 
@@ -274,25 +282,64 @@ Now let’s create an alert on the Platinum Customer Error metric we created in 
 * **Click** on ```Health Rules```.
 * **Click** on the ```+``` button.
 
-This health rule will monitor the condition of our ```Platinum Customer Error metric```. In the ```Overview``` tab give the health rule the name ```Platinum Customer Errors```, and Use the last 5 minutes of data (so we can see the effects of the rule quickly). **DO NOT click the Save button yet**.
+This health rule will monitor the condition of our ```<GROUPNUMBER>-Platinum Customer Error``` metric. In the ```Overview``` tab give the health rule the name ```<GROUPNUMBER>-Platinum Customer Errors```, and Use the last 5 minutes of data (so we can see the effects of the rule quickly). **DO NOT click the Save button yet**.
 
 * **Click** on the ```Warning Condition``` tab.  
 
 This tab allows us to proactively alert with a “yellow” warning condition before the situation turns critical with our Platinum Customers.
 * **Click** on ```Select a Metric```.
-* **Select** the ```Platinum Custom Errors``` metric
+* **Select** the ```<GROUPNUMBER>-Platinum Custom Errors``` metric
 * **Click** the ```Select``` button.
 
 Normally we would use a baseline to understand when this metric deviates from normal conditions, but for lab purposes we will use a specific value so we can show the condition turning red on our dashboard (since we already know there is a problem).  
 * Use ```> Specific Value = 0```.  **DO NOT click the Save button yet.**
 * Finally, we can also set a “red” ```Critical Condition```.   
-* **Select** the ```Platinum Customer Errors metric```
+* **Select** the ```<GROUPNUMBER>-Platinum Customer Errors``` metric
 * Use ```> Specific Value = 5```.
 * **Click** the ```Save``` button
 
 After 5 minutes you should see the condition turning Warning / Critical as in the image below.  Now we can be proactively alerted when there are problems with Platinum Customers specifically!  You can incorporate this health rule into a policy that sends and email, etc.
 
 ## 7.2. Add Analytics Data to Custom Dashboards
+
+Let’s leverage our Analytics data within a Dashboard to complete our view of Business iQ for the eCommerce application.
+* **Click** on Dashboards & Reports in the top navigation
+* **Click** on ```+ Create Dashboard```
+* Give a Name to the Dashboard and prepend your <GROUPNUMBER>-
+
+From the observation done before we want to create a comprehensive view on the data. Let's find the corresponding Widget for the following and position them on the Dashboard:
+
+* Health Status of our ```<GROUPNUMBER>-Platinum Customer Errors``` Rule
+* Numeric Value of our Analytics Search ```<GROUPNUMBER>-Platinum Customer Error %```
+
+Finally, let’s create a special Analytics visualization for our Application. A Conversion funnel helps to visualize the flow of users or events through a multi step process in an application to better understand which steps can be optimized for success.
+
+* **Click** on ```+ Add Widget```
+* **Select** ```Funnel Analysis``` under ```Analytics```
+* ```+ Add Criteria``` for Application - ```biz-iq-lab-<GROUPNUMBER>```
+
+The first step of funnel creation is to select the unique value that passes through each step in the funnel process.
+
+* **Click** on the drop down for ```Count Distinct``` of and select ```SessionID```
+  * The SessionID persists through each step in the funnel
+* Give the first step the name of ```Homepage```
+* Then ```+ Add Criteria``` for Application - ```biz-iq-lab-<GROUPNUMBER>``` and Business Transaction - ```ecom.homePage```
+
+The Homepage is the first step that our customers encounter when they use the eCommerce application.
+
+Now we will continue to add the remaining steps that our customers take when attempting to buys products, which is a successful “conversion” once they have a confirmed order.  We expect that each additional step will have equal to or less customers than the previous step, as some customers will choose to not purchase products at various steps of the buying process.  Repeat the previous + Add Funnel Step for the additional steps in the funnel.  In order:
+* Log In
+* Add to Cart
+* Check Out
+* Submit Payment
+* Confirmation
+
+* **Click** ```Save``` when you are finished
+
+Your final conversion funnel should look like the image below.
+![Visualization 4](img/dash_5.png)
+
+Business iQ allows you to use all of your relevant application data (performance metrics, information points, analytics data, health rules, etc.) to get a complete end to end picture of the health of your business and proactively take action when issues are detected to protect your business.
 
 # 8. Log Analytics (Optional)
 
