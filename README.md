@@ -3,7 +3,10 @@ Business iQ Hands-On Lab
 # 1. Accessing the Lab
 ## 1.1. Controller
 * [Controller URL]
-* Credentials will be provided during the Lab Session
+* Credentials
+  * User: ```biz-iq-lab-<GROUPNUMBER>```
+  * Password: ```biz-iq-lab-<GROUPNUMBER>```
+  * **No leading 0 required here e.g. if you are Group 1 your password/user is biz-iq-lab-1**
 
 ## 1.2. Accessing the Lab Application
 
@@ -17,15 +20,15 @@ What's in it?
 ### 1.2.1. Pre-Provisioned instance
 
 * Linux/MacOS
-  * [Download .pem SSH Key]
-  * Change Permissions ```chmod 400 biq_lab.pem```
-  * Login ```ssh -i biq_lab.pem -p <PORT> root@<IP>```(Port and IP will be provided during the Lab Session)
+  * Login ```ssh -p 80<GROUPNUMBER> root@<IP>```(**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
+  * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 * Windows
   * [Download Putty]
-  * [Download .ppk SSH Key]
-  * Provide Connection Details within  ```Session``` (Port and IP will be provided during the Lab Session)
-  * Import SSH Key in ```Connection -> SSH -> Auth -> Private Key File for Authentication:```
-  * Login as root
+  * In the Hostname Field put in the IP ```<IP>```
+  * In the ```Port```field put in ```80<GROUPNUMBER>``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
+  * **Click** Open
+  * Use ```root``` as the User
+  * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 
 ### 1.2.2. Build your own (Optional)
 
@@ -42,20 +45,25 @@ What's in it?
 
 ## 2.1. Configure the Analytics Agent
 
-* Edit the Properties File ```vi /analytics-agent/conf/analytics-agent.properties```
-  * ad.controller.url=[Controller URL] **(New in 4.3)**
-  * http.event.endpoint=[Events URL]
+* Edit the Properties File ```vi /analytics-agent/conf/analytics-agent.properties``` (**If you have never used vi use the alternative option below**)
+  * ad.controller.url=https://appd-ga.appd.duckdns.org **(New in 4.3)**
+  * http.event.endpoint=https://events.appd.duckdns.org
   * http.event.name=customer1 **(New in 4.3)**
   * http.event.accountName=customer1_bacabe1d-9659-4250-857f-5818619da483
   * http.event.accessKey=H16h53cur3
+  * **Non vi User Option**
+    * sed -i -e 's/http:\/\/localhost:8090/https:\/\/appd-ga.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties
+    * sed -i -e 's/http:\/\/localhost:9080/https:\/\/events.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties
+    * sed -i -e 's/analytics-customer1/customer1_bacabe1d-9659-4250-857f-5818619da483/g' /analytics-agent/conf/analytics-agent.properties
+    * sed -i -e 's/your-account-access-key/H16h53cur3/g' /analytics-agent/conf/analytics-agent.properties
 * Start the Analytics Agent ```nohup /analytics-agent/bin/analytics-agent.sh start &```
 
 ## 2.2. Enable Analytics in the Controller UI
 
 * Login to the [Controller URL]
 * Navigate to ```Analytics -> Configuration -> Transaction Analytics```
-* Select ```<YOUR APPLICATION>``` under the ```Configure Analytics for Application``` Dropdown
-* Click on the checkbox ```Enable Analytics Data Collection for <YOUR APPLICATION>```
+* Select ```biz-iq-lab-<GROUPNUMBER>``` under the ```Configure Analytics for Application``` Dropdown
+* Click on the checkbox ```Enable Analytics Data Collection for biz-iq-lab-<GROUPNUMBER>```
 * Wait 1-2 minutes
 * Navigate to ```Analytics -> Searches```
 * Click the ```Add``` Button and Select any of the available options
@@ -71,17 +79,18 @@ What's in it?
   * Find a Method which is executed within every Transaction (homePage, logIn,...)
 * Configure the Method Invocation Data Collector
   * Navigate to ```Analytics -> Configuration -> Transaction Analytics```
-  * Select ```<YOUR APPLICATION>``` under the ```Configure Analytics for Application``` Dropdown
+  * Select ```biz-iq-lab-<GROUPNUMBER>``` under the ```Configure Analytics for Application``` Dropdown
   * Add a new Data Collector under ```Method Invocation Data Collectors```
   * Give it a Name like **SessionID**
-  * Make sure ```Transaction Analytics``` is checked
+  * Make sure ```Transaction Snapshots``` and ```Transaction Analytics``` are checked
   * Define the Class Name ```com.appdynamics.eCommerceThread```
   * Define the Method Name ```processTransaction```
   * Add a Collector under ```Specify the Data to Collect from this Method Invocation```
     * Name it **SessionID**
     * Select ```Invoked Object```
     * Select ```Use Getter Chain``` and type in ```getSessionID()```
-    * Hit ```Save``` and make sure to apply the Collector to all your Business Transactions
+    * Hit ```Save```
+    * Apply the Collector to all your Business Transactions
 * Wait 1-2 minutes (**You can already configure the Data Collector in Section 3.2.**)
 * You should now see your new Field within the Analytics UI
 * **Ask your Instructor if this does not happen**
@@ -96,7 +105,8 @@ What's in it?
   * Use the ```Method Parameter``` Option instead of ```Invoked Object```before
   * You can stick to ```toString()``` No need to specify a custom getter Chain
   * You can add multiple Parameters within one Data Collector
-  * Make sure to apply this Data Collector only to your ```Checkout``` Business Transaction
+  * Make Sure to you have to correct ```Method Parameter Index```
+  * Make sure to apply this Data Collector only to your ```eCom.checkOut``` Business Transaction
   * Add these parameters:
     * ```customerType```
     * ```customerEmail```
@@ -122,7 +132,7 @@ All of the available data elements can be used to filter the current result set.
 
 You can add filters by clicking on the ```+ Add Criteria``` Button.
 
-**Note:** you MUST select an Application in Transaction Analytics before you can filter by Business Transaction.
+**Note:** You MUST select an Application in Transaction Analytics before you can filter by Business Transaction.
 
 You can also add filter criteria by **left clicking on the field names** and selecting a value.
 
@@ -148,7 +158,7 @@ Now the widget has been added to your canvas. You can resize it by clicking the 
 
 Add another custom widget using the same steps. This time drag the ```Response Time (ms)``` field into the Y Axis and select ```Average``` for the aggregation.  Configure this widget to be a ```Numeric Chart``` type like Unique Customers.  Notice that numeric fields have different aggregation options than string fields.
 
-Now let’s break down eCommerce’s user experience by business transaction.  Create another custom widget and drag ```Business Transaction``` to the X Axis.  Since we did not populate the Y Axis, our metric will default to # of transactions.
+Now let’s break down your applications user experience by business transaction.  Create another custom widget and drag ```Business Transaction``` to the X Axis.  Since we did not populate the Y Axis, our metric will default to # of transactions.
 Bar and Pie charts can have a second grouping on the X Axis.  Drag ```User Experience``` to the X Axis.  Now we can see a user experience break out by each Business Transaction.
 
 Your Visualization should look like this now:
@@ -161,8 +171,8 @@ Click on the ```Save``` button and give the search a name.  Notice that it will 
 Now let’s revisit the interesting data point we saw in our last saved search.  The Check Out business transaction seems to be experiencing a high error rate.  Let’s build a more comprehensive visualization and try to find out why this is the case and what users are impacted.
 
 * Create a new search and add the following search criteria
-  * Application - <YOUR APPLICATION>
-  * Business Transaction - eCom.checkOut
+  * Application - ```biz-iq-lab-<GROUPNUMBER>```
+  * Business Transaction - ```eCom.checkOut```
 * Add the following ```Numeric chart``` types, as we learned in the last section (Hint: look at the field names and aggregation types under the metrics):
 ![Visualization 2](img/dash_2.png)
 * Finally add the following various visuals, as we learned in the last section (Hint: there are a few new chart types to experiment with).
@@ -206,9 +216,9 @@ You can also leverage Analytics Searches to create metrics.  These metrics work 
 Analytics metrics are based on the # of results of a search.  Let’s create a metric on the error rate for Platinum customers, which would be useful for our eCommerce site based on what we uncovered in the last section.   Later we will use this metric for alerting purposes so we can proactively identify when our most critical customers are experiencing issues.
 
 * **Create a new search** with the following criteria:
-  * Application = eCommerce
-  * User Experience = Error
-  * Customer Type = Platinum
+  * Application - ```biz-iq-lab-<GROUPNUMBER>```
+  * User Experience - ```Error```
+  * Customer Type - ```Platinum```
 * Save the Search as Platinum Customer Errors
 * **Click** on the ```Actions``` button, and then **click** ```Create Metric```
 * Name the metric Platinum Customer Errors.
@@ -242,13 +252,13 @@ The ```math``` operators allow you to do addition, subtraction, multiplication, 
 
 The ```AS``` statement allows you to create an alias for the column name of your new calculated value.
 
-Try the following query, which gives us error rate across our entire data set: ```SELECT (filter(count(*), WHERE userExperience = "ERROR") * 1.0) / count(*) * 100 AS ErrorRate FROM transactions WHERE application = "YOUR Application"```
+Try the following query, which gives us error rate across our entire data set: ```SELECT (filter(count(*), WHERE userExperience = "ERROR") * 1.0) / count(*) * 100 AS ErrorRate FROM transactions WHERE application = "biz-iq-lab-<GROUPNUMBER>"```
 
-**NOTE:** You might have to manually delete & type the quotes around ERROR and eCommerce if you copy and paste the query from the lab guide (due to formatting).
+**NOTE:** You might have to manually delete & type the quotes around ERROR and ```biz-iq-lab-<GROUPNUMBER>``` if you copy and paste the query from the lab guide (due to formatting).
 
-Looks like across all customers we currently have around a 3 to 4 % error rate.  Let’s further filter to Platinum customers only by adding Customer Type to the WHERE clause, which lets us filter our results: ```SELECT (filter(count(*), WHERE userExperience = “ERROR”) * 1.0) / count(*) * 100 AS ErrorRate FROM transactions WHERE application = “eCommerce” AND segments.userData.`Customer Type` = “Platinum”```
+Looks like across all customers we currently have around a 3 to 4 % error rate.  Let’s further filter to Platinum customers only by adding Customer Type to the WHERE clause, which lets us filter our results: ```SELECT (filter(count(*), WHERE userExperience = “ERROR”) * 1.0) / count(*) * 100 AS ErrorRate FROM transactions WHERE application = “biz-iq-lab-<GROUPNUMBER>” AND segments.userData.`Customer Type` = “Platinum”```
 
-**NOTE:** You might have to manually delete & type the quotes around ERROR, eCommerce, and Platinum if you copy and paste the query from the lab guide (due to formatting).
+**NOTE:** You might have to manually delete & type the quotes around ERROR, ```biz-iq-lab-<GROUPNUMBER>```, and Platinum if you copy and paste the query from the lab guide (due to formatting).
 
 Interestingly our Platinum customers are experiencing a MUCH higher error rate at almost 50 %.   
 
@@ -286,8 +296,6 @@ After 5 minutes you should see the condition turning Warning / Critical as in th
 
 # 8. Log Analytics (Optional)
 
-[Download .pem SSH Key]: biq_lab.pem
-[Download .ppk SSH Key]: biq_lab.ppk
 [Download Putty]: http://www.putty.org/
 [Main Business Logic]: /com/appdynamics/eCommerceThread.java
 [controller url]: https://appd-ga.appd.duckdns.org
