@@ -327,15 +327,14 @@ The first step of funnel creation is to select the unique value that passes thro
 
 The Homepage is the first step that our customers encounter when they use the eCommerce application.
 
-Now we will continue to add the remaining steps that our customers take when attempting to buys products, which is a successful “conversion” once they have a confirmed order.  We expect that each additional step will have equal to or less customers than the previous step, as some customers will choose to not purchase products at various steps of the buying process.  Repeat the previous + Add Funnel Step for the additional steps in the funnel.  In order:
+Now we will continue to add the remaining steps that our customers take when attempting to buys products, which is a successful “conversion” once they have a confirmed order.  We expect that each additional step will have equal to or less customers than the previous step, as some customers will choose to not purchase products at various steps of the buying process.  
 
-* Log In
-* Add to Cart
-* Check Out
-* Submit Payment
-* Confirmation
-
-
+* Repeat the previous ```+ Add Funnel Step``` for the additional steps in the funnel.  In order:
+  * Log In
+  * Add to Cart
+  * Check Out
+  * Submit Payment
+  * Confirmation
 * **Click** ```Save``` when you are finished
 
 Your final conversion funnel should look like the image below:
