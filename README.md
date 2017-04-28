@@ -52,10 +52,10 @@ What's in it?
   * http.event.accountName=customer1_bacabe1d-9659-4250-857f-5818619da483
   * http.event.accessKey=H16h53cur3
   * **Non vi User Option**
-    * sed -i -e 's/http:\/\/localhost:8090/https:\/\/appd-ga.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties
-    * sed -i -e 's/http:\/\/localhost:9080/https:\/\/events.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties
-    * sed -i -e 's/analytics-customer1/customer1_bacabe1d-9659-4250-857f-5818619da483/g' /analytics-agent/conf/analytics-agent.properties
-    * sed -i -e 's/your-account-access-key/H16h53cur3/g' /analytics-agent/conf/analytics-agent.properties
+    * ```sed -i -e 's/http:\/\/localhost:8090/https:\/\/appd-ga.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties```
+    * ```sed -i -e 's/http:\/\/localhost:9080/https:\/\/events.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties```
+    * ```sed -i -e 's/analytics-customer1/customer1_bacabe1d-9659-4250-857f-5818619da483/g' /analytics-agent/conf/analytics-agent.properties```
+    * ```sed -i -e 's/your-account-access-key/H16h53cur3/g' /analytics-agent/conf/analytics-agent.properties```
 * Start the Analytics Agent ```nohup /analytics-agent/bin/analytics-agent.sh start &```
 
 ## 2.2. Enable Analytics in the Controller UI
@@ -328,15 +328,18 @@ The first step of funnel creation is to select the unique value that passes thro
 The Homepage is the first step that our customers encounter when they use the eCommerce application.
 
 Now we will continue to add the remaining steps that our customers take when attempting to buys products, which is a successful “conversion” once they have a confirmed order.  We expect that each additional step will have equal to or less customers than the previous step, as some customers will choose to not purchase products at various steps of the buying process.  Repeat the previous + Add Funnel Step for the additional steps in the funnel.  In order:
+
 * Log In
 * Add to Cart
 * Check Out
 * Submit Payment
 * Confirmation
 
+
 * **Click** ```Save``` when you are finished
 
-Your final conversion funnel should look like the image below.
+Your final conversion funnel should look like the image below:
+
 ![Visualization 4](img/dash_5.png)
 
 Business iQ allows you to use all of your relevant application data (performance metrics, information points, analytics data, health rules, etc.) to get a complete end to end picture of the health of your business and proactively take action when issues are detected to protect your business.
