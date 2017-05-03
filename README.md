@@ -20,11 +20,11 @@ What's in it?
 ### 1.2.1. Pre-Provisioned instance
 
 * Linux/MacOS
-  * Login ```ssh -p 80<GROUPNUMBER> root@<IP>```(**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
+  * Login ```ssh -p 80<GROUPNUMBER> root@52.58.178.223```(**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
   * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 * Windows
   * [Download Putty]
-  * In the Hostname Field put in the IP ```<IP>```
+  * In the Hostname Field put in the IP ```52.58.178.223```
   * In the ```Port```field put in ```80<GROUPNUMBER>``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
   * **Click** Open
   * Use ```root``` as the User
@@ -105,7 +105,7 @@ What's in it?
   * Use the ```Method Parameter``` Option instead of ```Invoked Object```before
   * You can stick to ```toString()``` No need to specify a custom getter Chain
   * You can add multiple Parameters within one Data Collector
-  * Make Sure to you have to correct ```Method Parameter Index```
+  * Make sure you use the correct ```Method Parameter Index```
   * Make sure to apply this Data Collector only to your ```eCom.checkOut``` Business Transaction
   * Add these parameters:
     * ```customerType```
@@ -206,7 +206,7 @@ Now we are only looking at Error transactions. Notice that more than half of our
 
 Now we can see a potential underlying issue.  It looks as though nearly all of the Platinum errors are associated with customers trying to purchase the Lord of the Rings Trilogy, which is much more expensive than most of our books and gives our users around a 4x average cart value.  Very quickly we were able to utilize Performance and Business information to get an immediate understanding of how our Business is being impacted in real time! **Make sure you save your search**.
 
-**Please Prepend your <GROUPNUMBER>- when saving something**
+**Please Prepend your** ```<GROUPNUMBER>-``` **when saving something**
 
 # 5. Acting on your Data
 
