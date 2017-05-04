@@ -31,13 +31,11 @@ Simon Parish|22
 Stefan Thieme|23
 Stephen Lee|24
 Yusuf Ali Kassalirahmathullah|25
-|26
-|27
-|28
-|29
-|30
-
-
+ |26
+ |27
+ |28
+ |29
+ |30
 
 ## 1.2. Controller
 * [Controller URL]
