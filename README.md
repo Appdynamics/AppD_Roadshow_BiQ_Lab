@@ -383,6 +383,18 @@ Business iQ allows you to use all of your relevant application data (performance
 
 # 8. Log Analytics (Optional)
 
+```
+(?s)\[\d{4}.*
+\[%{TIMESTAMP_ISO8601}]%{SPACE}\[%{LOGLEVEL:logLevel}%{SPACE}]%{SPACE}\[%{JAVAMETHOD:method}]%{SPACE}\[%{JAVACLASS:class}]%{SPACE}%{JAVALOGMESSAGE:logMesssage}
+```
+
+# 9. Provide Feedback for the Lab
+
+* Please go to [Slido]
+* Input event code: **#appd**
+* Fill in the  survey for Hands-on Lab: **Business iQ**
+
+[Slido]: https:www.slido.com
 [ADQL Information]: https://docs.appdynamics.com/display/latest/ADQL+Reference
 [Download Putty]: http://www.putty.org/
 [Main Business Logic]: /com/appdynamics/eCommerceThread.java
