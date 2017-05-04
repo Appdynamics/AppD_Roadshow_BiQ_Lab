@@ -1,14 +1,52 @@
 Business iQ Hands-On Lab
 ======
 # 1. Accessing the Lab
-## 1.1. Controller
+
+## 1.1. Group Assignment
+
+NAME | GROUPNUMBER
+------------ | -------------
+Adam Arnold|1
+Benjamin Wolff|2
+Christian Kengne|3
+Christian Chelius|4
+Dariusz Aleksandrowicz|5
+David Wilson|6
+Francois Vandermeersch|7
+Frank Roloff|8
+Grzegorz Nieweglowski|9
+Hagen Gloetter|10
+James Robinson|11
+Karin Faulhaber|12
+Kay Sung|13
+Kevin Zabel|14
+Michael Rapoport|15
+Mikko Kaskela|16
+Mustafe Ahmed|17
+Neal O'Brian|18
+Niclas Nilsson|19
+Oliver Sonnenfeld|20
+Sami Pakarinen|21
+Simon Parish|22
+Stefan Thieme|23
+Stephen Lee|24
+Yusuf Ali Kassalirahmathullah|25
+|26
+|27
+|28
+|29
+|30
+
+
+
+## 1.2. Controller
 * [Controller URL]
 * Credentials
   * User: ```biz-iq-lab-<GROUPNUMBER>```
   * Password: ```biz-iq-lab-<GROUPNUMBER>```
   * **No leading 0 required here e.g. if you are Group 1 your password/user is biz-iq-lab-1**
 
-## 1.2. Accessing the Lab Application
+## 1.3. Accessing the Lab Application
 
 You can either run the Application via Docker on your local machine or use an already provisioned instance.
 
