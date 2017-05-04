@@ -277,6 +277,8 @@ Analytics metrics are based on the # of results of a search.  Let’s create a m
 
 AppDynamics also provides a SQL-like query language for accessing Analytics data.  Some users might prefer to use a query language while others will need to take advantage of its additional functionality to create advanced queries and visualizations.
 
+Find out more in the [ADQL Information] Section within our Documentation.
+
 ## 6.1. Simple Query
 
 * ```Add``` a new search and select ```Query Language Search```
@@ -381,6 +383,7 @@ Business iQ allows you to use all of your relevant application data (performance
 
 # 8. Log Analytics (Optional)
 
+[ADQL Information]: https://docs.appdynamics.com/display/latest/ADQL+Reference
 [Download Putty]: http://www.putty.org/
 [Main Business Logic]: /com/appdynamics/eCommerceThread.java
 [controller url]: https://appd-ga.appd.duckdns.org
