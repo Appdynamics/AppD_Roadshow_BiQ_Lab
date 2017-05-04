@@ -383,9 +383,41 @@ Business iQ allows you to use all of your relevant application data (performance
 
 # 8. Log Analytics (Optional)
 
+* Navigate to ```Analytics -> Configuration -> Log Analytics -> Source Rules```
+* **Click** ```+ Add``` to create a new Source Rules
+* **Select** ```New source rule```
+* **Click** ```Browse...``` and Upload the [Log Sample]
+* Name the Source ```biz-iq-lab-<GROUPNUMBER>```
+* Put in the Type ```biz-iq-lab-<GROUPNUMBER>```
+* Put in the Source File as ```/analytics-agent/logs/analytics-agent.log```
+* Check the Box at ```Override timestamp format``` and type in ```yyyy-MM-dd'T'HH:mm:ss,SSSZ```
+* Now Construct the Grok Pattern (**Solution Below**)
+  * **Hint** go to the [Grok Constructor]
+* Add the Multiline Config by defining how a line usually starts (**Solution Below**)
+  * **Hint** Use regex
+* Make sure you play around with ```Auto Field Extraction``` and ```Field Management```
+  * Ask your Instructor if you have questions
+* When you are at ```Agent Mapping``` **click** ```+ Add Agent Scope```
+* Give it the name ```biz-iq-lab-<GROUPNUMBER>```
+* Select your Agent
+  * To find your agent go back to the SSH Session and type ```hostname```
+  * The returned value is your ```Unique Host ID```
+* **Click** Save
+* Check the just created scope within ```Selected Agent Scopes```
+* **Click** Save
+* **Click** Enable on your Source Rules
+* Navigate to ```Analytics -> Searches```
+* Click the ```Add``` Button and Select ```Drag and Drop Search```
+* Select ```Logs``` from the Drop Down
+
+**Multiline Regex:**
 ```
 (?s)\[\d{4}.*
-\[%{TIMESTAMP_ISO8601}]%{SPACE}\[%{LOGLEVEL:logLevel}%{SPACE}]%{SPACE}\[%{JAVAMETHOD:method}]%{SPACE}\[%{JAVACLASS:class}]%{SPACE}%{JAVALOGMESSAGE:logMesssage}
+```
+
+**Grok Pattern:**
+```
+\[%{TIMESTAMP_ISO8601}]%{SPACE}\[%{LOGLEVEL:logLevel}%{SPACE}]%{SPACE}\[%{PROG:thread}]%{SPACE}\[%{JAVACLASS:class}]%{SPACE}%{GREEDYDATA:logMesssage}
 ```
 
 # 9. Provide Feedback for the Lab
@@ -400,3 +432,5 @@ Business iQ allows you to use all of your relevant application data (performance
 [Main Business Logic]: /com/appdynamics/eCommerceThread.java
 [controller url]: https://appd-ga.appd.duckdns.org
 [events url]: https://events.appd.duckdns.org
+[Log Sample]: https://raw.githubusercontent.com/michaelenglert/AppD_Summit_BiQ_Lab/master/sample-log/analytics-agent.log
+[Grok Constructor]: http://grokconstructor.appspot.com/do/construction
