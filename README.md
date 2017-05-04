@@ -20,11 +20,11 @@ What's in it?
 ### 1.2.1. Pre-Provisioned instance
 
 * Linux/MacOS
-  * Login ```ssh -p 80<GROUPNUMBER> root@52.58.178.223```(**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
+  * Login ```ssh -p 80<GROUPNUMBER> root@52.28.136.206```(**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
   * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 * Windows
   * [Download Putty]
-  * In the Hostname Field put in the IP ```52.58.178.223```
+  * In the Hostname Field put in the IP ```52.28.136.206```
   * In the ```Port```field put in ```80<GROUPNUMBER>``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
   * **Click** Open
   * Use ```root``` as the User
