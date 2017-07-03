@@ -381,17 +381,8 @@ Business iQ allows you to use all of your relevant application data (performance
 \[%{TIMESTAMP_ISO8601}]%{SPACE}\[%{LOGLEVEL:logLevel}%{SPACE}]%{SPACE}\[%{PROG:thread}]%{SPACE}\[%{JAVACLASS:class}]%{SPACE}%{GREEDYDATA:logMesssage}
 ```
 
-# 9. Provide Feedback for the Lab
-
-* Please go to [Slido]
-* Input event code: **#appd**
-* Fill in the  survey for Hands-on Lab: **Business iQ**
-
-[Slido]: https://www.slido.com
 [ADQL Information]: https://docs.appdynamics.com/display/latest/ADQL+Reference
 [Download Putty]: http://www.putty.org/
 [Main Business Logic]: /com/appdynamics/eCommerceThread.java
-[controller url]: https://appd-ga.appd.duckdns.org
-[events url]: https://events.appd.duckdns.org
 [Log Sample]: https://raw.githubusercontent.com/michaelenglert/AppD_Summit_BiQ_Lab/master/sample-log/analytics-agent.log
 [Grok Constructor]: http://grokconstructor.appspot.com/do/construction
