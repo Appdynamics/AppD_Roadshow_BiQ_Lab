@@ -97,7 +97,7 @@ What's in it?
 * Look at the [Main Business Logic]
   * Find the ```checkOut``` Method
 * Add a new Data Collector as before to get additional Data
-* **Copy the exact parameter name as name for the Data Collector and use your group number as a prefix. E.g. 27productType.**
+* **Copy the exact parameter name as name for the Data Collector and use your group number as a prefix. E.g. productType_27.**
 * **Hints**
   * Use the ```Method Parameter``` Option instead of ```Invoked Object```before
   * You can stick to ```toString()``` No need to specify a custom getter Chain
@@ -176,7 +176,7 @@ Your Visualization should look like this now:
 
 Click on the ```Save``` button and give the search a name.  Notice that it will now appear on your searches page as a Saved Search.
 
-**Please Prepend your <GROUPNUMBER>- when saving something**
+**Please prepend your group number when saving something**
 
 ## 4.4. Ad-hoc Analysis
 
