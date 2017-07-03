@@ -97,7 +97,7 @@ What's in it?
 * Look at the [Main Business Logic]
   * Find the ```checkOut``` Method
 * Add a new Data Collector as before to get additional Data
-* **Copy the exact parameter name as name for the Data Collector**
+* **Copy the exact parameter name as name for the Data Collector and use your group number as a prefix. E.g. 27productType.**
 * **Hints**
   * Use the ```Method Parameter``` Option instead of ```Invoked Object```before
   * You can stick to ```toString()``` No need to specify a custom getter Chain
