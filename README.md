@@ -21,7 +21,7 @@ What's in it?
 ### 1.2.1. Pre-Provisioned instance
 
 * Linux/MacOS
-  * Login ```ssh -p 80<GROUPNUMBER> root@35.190.196.160``` or root@104.199.84.244``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001. For the hostname please see the group assignments.**)
+  * Login ```ssh -p 80<GROUPNUMBER> root@35.190.196.160``` or root@104.199.84.244``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001. For the hostname please see the [group assignments](https://goo.gl/h8Vpnp).**)
   * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 * Windows
   * [Download Putty]
@@ -35,8 +35,8 @@ What's in it?
 
 **Docker is a Pre-Requisite do perform these steps**
 
-* Clone this repository ```$ git clone https://github.com/michaelenglert/AppD_Summit_BiQ_Lab```
-* Change into Docker directory ```cd AppD_Summit_BiQ_Lab/Docker```
+* Clone this repository ```$ git clone https://github.com/Appdynamics/AppD_Roadshow_BiQ_Lab```
+* Change into Docker directory ```cd AppD_Roadshow_BiQ_Lab/Docker```
 * Create Image ```./run.sh```
   * The script will prompt for your AppDynamics Portal Credentials (Two-Factor Authentication is **not supported**)
 * Run the container ```docker run -d -e APPDYNAMICS_AGENT_APPLICATION_NAME=<YOUR APPLICATION> --name <NAME> michi/biqlab```
