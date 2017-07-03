@@ -3,7 +3,7 @@ Business iQ Hands-On Lab
 # 1. Accessing the Lab
 
 ## 1.1. Controller
-* [Controller URL]
+* [Controller URL](https://achim.saas.appdynamics.com)
 * Credentials
   * User: ```biz-iq-lab-<GROUPNUMBER>```
   * Password: ```biz-iq-lab-<GROUPNUMBER>```
@@ -21,7 +21,7 @@ What's in it?
 ### 1.2.1. Pre-Provisioned instance
 
 * Linux/MacOS
-  * Login ```ssh -p 80<GROUPNUMBER> root@52.28.136.206```(**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
+  * Login ```ssh -p 80<GROUPNUMBER> root@35.190.196.160``` or root@104.199.84.244``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001. For the hostname please see the group assignments.**)
   * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 * Windows
   * [Download Putty]
@@ -44,20 +44,16 @@ What's in it?
 
 # 2. Setup Analytics
 
-## 2.1. Configure the Analytics Agent
+## 2.1. Review Analytics Agent configuration (already done for this lab)
 
-* Edit the Properties File ```vi /analytics-agent/conf/analytics-agent.properties``` (**If you have never used vi use the alternative option below**)
-  * ad.controller.url=https://appd-ga.appd.duckdns.org **(New in 4.3)**
-  * http.event.endpoint=https://events.appd.duckdns.org
-  * http.event.name=customer1 **(New in 4.3)**
-  * http.event.accountName=customer1_bacabe1d-9659-4250-857f-5818619da483
-  * http.event.accessKey=H16h53cur3
-  * **Non vi User Option**
-    * ```sed -i -e 's/http:\/\/localhost:8090/https:\/\/appd-ga.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties```
-    * ```sed -i -e 's/http:\/\/localhost:9080/https:\/\/events.appd.duckdns.org/g' /analytics-agent/conf/analytics-agent.properties```
-    * ```sed -i -e 's/analytics-customer1/customer1_bacabe1d-9659-4250-857f-5818619da483/g' /analytics-agent/conf/analytics-agent.properties```
-    * ```sed -i -e 's/your-account-access-key/H16h53cur3/g' /analytics-agent/conf/analytics-agent.properties```
-* Start the Analytics Agent ```nohup /analytics-agent/bin/analytics-agent.sh start &```
+* Check the Properties File ```vi /analytics-agent/conf/analytics-agent.properties```
+  * ad.controller.url=https://achim.saas.appdynamics.com **(New in 4.3)**
+  * http.event.endpoint=https://analytics.api.appdynamics.com:443
+  * http.event.name=achim **(New in 4.3)**
+  * http.event.accountName=achim_ebed97fd-fa0d-41f8-9811-2558b9252555
+  * http.event.accessKey=XXXXXXXX
+
+* The Analytics Agent has been started with ```nohup /analytics-agent/bin/analytics-agent.sh start &```. Review its log file at ```/analytics-agent/logs/analytics-agent.log```
 
 ## 2.2. Enable Analytics in the Controller UI
 
