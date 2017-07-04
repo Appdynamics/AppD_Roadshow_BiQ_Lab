@@ -22,14 +22,14 @@ What's in it?
 
 * Linux/MacOS
   * Login ```ssh -p 80<GROUPNUMBER> root@35.190.196.160``` or root@104.199.84.244``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001. For the hostname please see the [group assignments](https://goo.gl/h8Vpnp).**)
-  * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
+  * Password ```biq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 * Windows
   * [Download Putty]
   * In the Hostname Field put in the IP ```35.190.196.160``` or ```104.199.84.244```.
   * In the ```Port```field put in ```80<GROUPNUMBER>``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
   * **Click** Open
   * Use ```root``` as the User
-  * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
+  * Password ```biq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 
 ### 1.2.2. Build your own (Optional)
 
