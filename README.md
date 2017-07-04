@@ -25,7 +25,7 @@ What's in it?
   * Password ```biz-iq-lab-<GROUPNUMBER>``` (**No leading 0 required here e.g. if you are Group 1 your password is biz-iq-lab-1**)
 * Windows
   * [Download Putty]
-  * In the Hostname Field put in the IP ```52.28.136.206```
+  * In the Hostname Field put in the IP ```35.190.196.160``` or ```104.199.84.244```.
   * In the ```Port```field put in ```80<GROUPNUMBER>``` (**Port is 4 digits long e.g if you are Group 1 your Port is 8001**)
   * **Click** Open
   * Use ```root``` as the User
